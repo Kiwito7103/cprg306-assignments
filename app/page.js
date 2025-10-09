@@ -24,6 +24,8 @@ export default function Home() {
             <Room link="/week-2" label="Week 2" />
             <Room link="/week-3" label="Week 3" />
             <Room link="/week-4" label="Week 4" />
+            <Room link="/week-5" label="Week 5" />
+
           </div>
         </div>
       </div>
