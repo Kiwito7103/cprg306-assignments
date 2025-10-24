@@ -1,11 +1,8 @@
 "use client";
+import React, { useState } from "react";
+import Item from "./item";
 
-import React, { useState } from 'react';
-import Item from './item';
-import itemsData from './items.js';
-
-function ItemList() {
-  const [items] = useState(itemsData);
+function ItemList({ items }) {
   const [sortBy, setSortBy] = useState("name");
 
   const sortedItems = [...items].sort((a, b) => {
@@ -18,31 +15,21 @@ function ItemList() {
   });
 
   return (
-    <div>
-      <button
-        onClick={() => setSortBy("name")}
-        style={{ backgroundColor: sortBy === "name" ? 'purple' : 'gray', color: 'white', marginRight: 8, padding: '8px 16px', borderRadius: 4 }}
-      >
-        Sort by Name
-      </button>
-      <button
-        onClick={() => setSortBy("category")}
-        style={{ backgroundColor: sortBy === "category" ? 'purple' : 'gray', color: 'white', padding: '8px 16px', borderRadius: 4 }}
-      >
-        Sort by Category
-      </button>
-
+    <section className="px-4 md:px-12 ">
+      <h2>Items</h2>
+      <label>
+        Sort by:{" "}
+        <select className="bg-black text-white" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option value="name">Name</option>
+          <option value="category">Category</option>
+        </select>
+      </label>
       <ul>
         {sortedItems.map((item) => (
-          <Item
-            key={item.id}
-            name={item.name}
-            quantity={item.quantity}
-            category={item.category}
-          />
+          <Item key={item.id} {...item} />
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
 

@@ -73,7 +73,7 @@ const itemsData = [
     "quantity": 4,
     "category": "household"
   }
-]
+];
 
 export default itemsData;
 
