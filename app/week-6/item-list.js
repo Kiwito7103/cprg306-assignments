@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useState } from 'react';
 import Item from './item';
-import itemsData from './items.json';
+import itemsData from './items.js';
 
 function ItemList() {
   const [items] = useState(itemsData);
