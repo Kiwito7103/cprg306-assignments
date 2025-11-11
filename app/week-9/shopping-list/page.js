@@ -5,24 +5,6 @@ import NewItem from "./new-item";
 import ItemList from "./item-list";
 import MealIdeas from "./meal-ideas";
 import itemsData from "./items.js";
-import { useUserAuth } from "../../contexts/AuthContext";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-
-export default function ShoppingListPage() {
-  const { user } = useUserAuth();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (user === null) {
-      router.push("/week-9");
-    }
-  }, [user, router]);
-
-  if (!user) {
-    return null;
-  }
-}
 
 function Page() {
   const [items, setItems] = useState(itemsData);
@@ -61,3 +43,5 @@ function Page() {
     </main>
   );
 }
+
+export default Page;
